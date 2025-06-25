@@ -72,7 +72,9 @@ Below are plots and console outputs showing RC charging and discharging curves a
 
 **Console Output**
 
-![10monitor](https://github.com/user-attachments/assets/6b3a598f-bc79-407b-9631-e6d3f5e78fab)
+Capacitance from charging:    281.72 µF
+
+Capacitance from discharging: 155.57 µF
 
 
 **Plot**
@@ -86,7 +88,9 @@ Below are plots and console outputs showing RC charging and discharging curves a
 
 **Console Output**
 
-![100monitor](https://github.com/user-attachments/assets/d5bf88df-6b9f-42ea-9993-c1ff37438ce4)
+Capacitance from charging:    105.42 µF
+
+Capacitance from discharging: 82.84 µF
 
 
 **Plot**
@@ -100,7 +104,9 @@ Below are plots and console outputs showing RC charging and discharging curves a
 
 **Console Output**
 
-![1kmonitor](https://github.com/user-attachments/assets/d4e50951-cbaa-49b7-8927-589c157a9a7a)
+Capacitance from charging:    125.18 µF
+
+Capacitance from discharging: 126.10 µF
 
 
 **Plot**
@@ -114,7 +120,9 @@ Below are plots and console outputs showing RC charging and discharging curves a
 
 **Console Output**
 
-![10kmonitor](https://github.com/user-attachments/assets/f7f4b5eb-237f-4da8-9ea4-a8b7997204db)
+Capacitance from charging:    109.03 µF
+
+Capacitance from discharging: 112.66 µF
 
 
 **Plot**
@@ -128,7 +136,9 @@ Below are plots and console outputs showing RC charging and discharging curves a
 
 **Console Output**
 
-![100kmonitor](https://github.com/user-attachments/assets/6976ac08-10ec-4880-a7a0-90e054f45636)
+Capacitance from charging:    103.75 µF
+
+Capacitance from discharging: 101.57 µF
 
 
 **Plot**
