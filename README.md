@@ -1,0 +1,143 @@
+# RC_Visualizer
+
+This project demonstrates the charging and discharging behavior of an RC (resistor-capacitor) circuit using an Arduino Uno and Python. It allows users to visualize voltage over time and estimate the capacitance of a circuit from experimental data.
+
+## Overview
+
+The system consists of two main components:
+
+- An **Arduino sketch** (`chargePin.ino`) that controls the charging/discharging process and samples voltage across the capacitor.
+- A **Python script** (`plotCharge.py`) that receives data over serial, plots voltage vs. time, and computes an estimated capacitance using exponential equations.
+
+The project was created to provide a hands-on understanding of the exponential voltage curves in RC circuits, and how resistance values affect the rate of charging and discharging.
+
+## How It Works
+
+1. The user selects one of five resistor values (10 Ω to 100 kΩ) via serial input.
+2. The Arduino charges a 100 µF capacitor through the selected resistor, samples voltage using its ADC, and then discharges it.
+3. Voltage samples are streamed over serial to a connected Python script.
+4. The Python script:
+   - Plots voltage during both charging and discharging cycles.
+   - Estimates capacitance using curve-fitting equations derived from the RC time constant.
+
+## Files
+
+| File             | Description                                                              |
+|------------------|--------------------------------------------------------------------------|
+| `chargePin.ino`  | Arduino sketch for controlling pins, sampling voltage, and sending data  |
+| `plotCharge.py`  | Python script for serial communication, plotting, and capacitance fitting|
+
+## Requirements
+
+- Arduino Uno
+- Capacitor: 100 µF
+- Resistors: 10 Ω, 100 Ω, 1 kΩ, 10 kΩ, 100 kΩ
+- Python 3.x with the following libraries:
+- pip install pyserial matplotlib numpy
+
+## Capacitance Calculation
+
+The capacitance is calculated using rearranged versions of the standard RC charge/discharge equations:
+
+**Discharging:**
+
+V(t) = V0 * e^(-t / RC)
+C = -t / (R * ln(V(t) / V0))
+
+**Charging:**
+
+V(t) = Vs * (1 - e^(-t / RC))
+C = -t / (R * ln(1 - V(t)/Vs))
+
+Where:
+- `R` is the selected resistor value
+- `V0` is the starting voltage
+- `Vs` is the source voltage (5 V)
+- `V(t)` is the voltage at time `t`
+
+The script samples voltage data and calculates `C` using the voltage after 100 ms of charging or discharging.
+
+## Example Results
+
+
+Below are plots and console outputs showing RC charging and discharging curves and corresponding capacitance estimations for each resistor value.
+
+---
+
+### 10 Ω Resistor
+
+**Console Output**
+
+![10monitor](https://github.com/user-attachments/assets/6b3a598f-bc79-407b-9631-e6d3f5e78fab)
+
+
+**Plot**
+
+![10](https://github.com/user-attachments/assets/2291eae9-79d1-4202-9dfd-1f48abdec8b8)
+
+
+---
+
+### 100 Ω Resistor
+
+**Console Output**
+
+![100monitor](https://github.com/user-attachments/assets/d5bf88df-6b9f-42ea-9993-c1ff37438ce4)
+
+
+**Plot**
+
+![100](https://github.com/user-attachments/assets/e3c885ef-e9f3-4767-8b7f-12cde601f27f)
+
+
+---
+
+### 1 kΩ Resistor
+
+**Console Output**
+
+![1kmonitor](https://github.com/user-attachments/assets/d4e50951-cbaa-49b7-8927-589c157a9a7a)
+
+
+**Plot**
+
+![1k](https://github.com/user-attachments/assets/01a00c1c-c22b-4abd-8ece-5cdbf1701daf)
+
+
+---
+
+### 10 kΩ Resistor
+
+**Console Output**
+
+![10kmonitor](https://github.com/user-attachments/assets/f7f4b5eb-237f-4da8-9ea4-a8b7997204db)
+
+
+**Plot**
+
+![10k](https://github.com/user-attachments/assets/fff34bc0-4b35-4c7a-aee1-0d7a70c9a752)
+
+
+---
+
+### 100 kΩ Resistor
+
+**Console Output**
+
+![100kmonitor](https://github.com/user-attachments/assets/6976ac08-10ec-4880-a7a0-90e054f45636)
+
+
+**Plot**
+
+![100k](https://github.com/user-attachments/assets/d088313a-edc0-48fb-88d7-c60aec256796)
+
+
+## Future Improvements
+
+- Support for multiple capacitors
+- GUI for resistor selection
+- Higher ADC resolution and faster sampling for improved accuracy at low time constants
+
+## License
+
+This project is released under the MIT License.
