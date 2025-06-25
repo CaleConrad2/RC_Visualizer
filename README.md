@@ -11,6 +11,10 @@ The system consists of two main components:
 
 The project was created to provide a hands-on understanding of the exponential voltage curves in RC circuits, and how resistance values affect the rate of charging and discharging.
 
+**Note:**
+
+The results for 10 Ω and 100 Ω resistors show poor accuracy due to hardware limitations. At low resistance values, the RC time constant (τ = RC) becomes very small — on the order of milliseconds or less. The Arduino Uno's ADC sampling rate is not fast enough to capture sufficient data points during the rapid charge and discharge cycles, resulting in coarse, stepped plots and significant deviation in estimated capacitance. This limitation becomes less significant at higher resistor values, where slower charging allows for smoother, more accurate voltage sampling and curve fitting.
+
 ## How It Works
 
 1. The user selects one of five resistor values (10 Ω to 100 kΩ) via serial input.
@@ -136,7 +140,7 @@ Below are plots and console outputs showing RC charging and discharging curves a
 
 - Support for multiple capacitors
 - GUI for resistor selection
-- Higher ADC resolution and faster sampling for improved accuracy at low time constants
+- Implementation using STM32 or ESP32 based microcontroller for higher ADC resolution and faster sampling for improved accuracy at low time constants
 
 ## License
 
